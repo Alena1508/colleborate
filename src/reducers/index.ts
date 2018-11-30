@@ -3,7 +3,7 @@ import { routerReducer, RouterState } from "react-router-redux";
 import { reducer as formReducer, FormStateMap } from "redux-form";
 import app, { State as AppState } from "./app";
 import demoRoutines, { State as DemoRoutinesState } from "./demoRoutines";
-import demoEntities, { State as DemoEntitiesState } from "./demoEntities";
+import registration, { State as DemoEntitiesState } from "./registration";
 
 export interface State {
   routing: RouterState;
@@ -18,5 +18,5 @@ export default combineReducers<State>({
   form: formReducer,
   app,
   demoRoutines,
-  demoEntities
+  demoEntities: registration
 });

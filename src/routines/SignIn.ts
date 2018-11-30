@@ -14,9 +14,9 @@ export type Payload = ReduxFormPayload<FormValues>;
 
 type Query = AxiosResponse<User>;
 
-export const action = createRoutine<Payload, Payload>("SIGN_UP", _.identity);
+export const action = createRoutine<Payload, Payload>("SIGN_IN", _.identity);
 
-async function signUp (value: {email: string, password: string}): Promise<Query> {
+async function signIn (value: {email: string, password: string}): Promise<Query> {
   // NOTE: Here should've been a call to API
   return new Promise((resolve, reject) => {
     axios.post("http://ccbe3f98.ngrok.io/api/v1/auth/sign-up", value)
@@ -35,7 +35,7 @@ function* handler ({ payload }: Action<any>) {
   try {
     yield put(action.request());
     console.log("test");
-    const instance = yield call(signUp, payload.values);
+    const instance = yield call(signIn, payload.values);
     yield put(action.success({ instance }));
   } catch (error) {
     yield put(action.failure(error.message));

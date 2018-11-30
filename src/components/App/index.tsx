@@ -5,9 +5,10 @@ import { compose } from "recompose";
 import Header from "../Header";
 // import SideMenu from "../SideMenu";
 import Home from "../Home";
-import Registration from "../../pages/Registration/CreateForm/index";
+import Registration from "../../pages/Registration";
 import DemoEntities from "../../pages/DemoEntities";
 import styles, { classes } from "./styles";
+import Login from "../../pages/Login";
 
 type ComponentProps = WithStyles<classes>;
 
@@ -17,7 +18,8 @@ interface ComponentState {
 export const Routes = {
   Home: "/",
   Registration: "/registration",
-  DemoEntities: "/demo-entities"
+  Login: "/login",
+  DemoEntities: "/demo-entities",
 };
 
 class App extends React.Component<ComponentProps, ComponentState> {
@@ -34,6 +36,7 @@ class App extends React.Component<ComponentProps, ComponentState> {
             <Switch>
               <Route path={Routes.Home} exact component={Home} />
               <Route path={Routes.Registration} exact component={Registration} />
+              <Route path={Routes.Login} exact component={Login} />
               <Route path={Routes.DemoEntities} exact component={DemoEntities} />
             </Switch>
           </main>

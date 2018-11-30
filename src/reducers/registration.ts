@@ -1,19 +1,19 @@
 import { Action } from "redux-actions";
 import * as Actions from "../actions";
-import { DemoEntity } from "../models/demoEntity";
+import { User } from "../models/User";
 
 export interface State {
-  list: DemoEntity[];
+  list: User[];
 }
 
 const initialState: State = {
   list: []
 };
 
-export default function demoEntities (state: State = initialState, action: Action<any>): State {
+export default function registration (state: State = initialState, action: Action<any>): State {
   switch (action.type) {
     case Actions.SignUpAction.SUCCESS:
-      return { ...state, list: [ ...state.list, action.payload.instance ] };
+      return { ...action.payload.instance};
     default:
       return state;
   }

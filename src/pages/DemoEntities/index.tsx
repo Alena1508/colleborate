@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Typography, Paper } from "@material-ui/core";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { compose } from "recompose";
-import { DemoEntity } from "../../models/demoEntity";
+import { User } from "../../models/User";
 import { State } from "../../reducers";
 import CreateForm from "../Registration/CreateForm";
 import styles, { classes } from "./styles";
@@ -13,7 +13,7 @@ interface ComponentsPropsFromDispatch {
 }
 
 interface ComponentsPropsFromState {
-  list: DemoEntity[];
+  list: User[];
 }
 
 type ComponentProps = ComponentsPropsFromDispatch & ComponentsPropsFromState & WithStyles<classes>;
