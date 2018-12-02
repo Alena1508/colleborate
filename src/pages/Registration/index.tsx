@@ -1,5 +1,5 @@
 import * as React from "react";
-import CreateForm from "./CreateForm";
+import RegistationForm from "./RegistationForm";
 import { Link } from "react-router-dom";
 import styles, { classes } from "./styles";
 import { compose } from "recompose";
@@ -14,7 +14,7 @@ class Registration extends React.Component<ComponentProps> {
     return (
       <div>
         <h2 className={classes.pageTitle}>Registration</h2>
-        <CreateForm/>
+        <RegistationForm/>
         <Link className={classes.link} to={`/login`}>Login</Link>
       </div>
     );

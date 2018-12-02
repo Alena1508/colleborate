@@ -2,21 +2,18 @@ import { combineReducers } from "redux";
 import { routerReducer, RouterState } from "react-router-redux";
 import { reducer as formReducer, FormStateMap } from "redux-form";
 import app, { State as AppState } from "./app";
-import demoRoutines, { State as DemoRoutinesState } from "./demoRoutines";
-import registration, { State as DemoEntitiesState } from "./registration";
+import user, { State as userState,  } from "./user";
 
 export interface State {
   routing: RouterState;
   form: FormStateMap;
   app: AppState;
-  demoRoutines: DemoRoutinesState;
-  demoEntities: DemoEntitiesState;
+  user: userState;
 }
 
 export default combineReducers<State>({
   routing: routerReducer,
   form: formReducer,
   app,
-  demoRoutines,
-  demoEntities: registration
+  user
 });

@@ -5,6 +5,7 @@ import { createRoutine, ReduxFormPayload } from "redux-saga-routines";
 import axios  from "axios";
 import { AxiosResponse } from  "axios";
 import { User } from "../models/User";
+import setAuthToken from "../helpers/setAuthToken";
 
 export interface FormValues {
   value: string;
@@ -21,8 +22,9 @@ async function signUp (value: {email: string, password: string}): Promise<Query>
   return new Promise((resolve, reject) => {
     axios.post("http://ccbe3f98.ngrok.io/api/v1/auth/sign-up", value)
       .then(function (response: Query) {
-        console.log(response);
-        resolve(response);
+        console.log(response, 514581);
+        const resp: any = response.data;
+        resolve(resp);
       })
       .catch(function (error) {
         console.log(error);
@@ -34,9 +36,10 @@ async function signUp (value: {email: string, password: string}): Promise<Query>
 function* handler ({ payload }: Action<any>) {
   try {
     yield put(action.request());
-    console.log("test");
+    console.log("request registration");
     const instance = yield call(signUp, payload.values);
     yield put(action.success({ instance }));
+    yield call(setAuthToken, instance.token.accessToken);
   } catch (error) {
     yield put(action.failure(error.message));
   } finally {

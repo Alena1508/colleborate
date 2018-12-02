@@ -6,7 +6,6 @@ import Header from "../Header";
 // import SideMenu from "../SideMenu";
 import Home from "../Home";
 import Registration from "../../pages/Registration";
-import DemoEntities from "../../pages/DemoEntities";
 import styles, { classes } from "./styles";
 import Login from "../../pages/Login";
 
@@ -19,7 +18,7 @@ export const Routes = {
   Home: "/",
   Registration: "/registration",
   Login: "/login",
-  DemoEntities: "/demo-entities",
+  // DemoEntities: "/demo-entities",
 };
 
 class App extends React.Component<ComponentProps, ComponentState> {
@@ -37,7 +36,7 @@ class App extends React.Component<ComponentProps, ComponentState> {
               <Route path={Routes.Home} exact component={Home} />
               <Route path={Routes.Registration} exact component={Registration} />
               <Route path={Routes.Login} exact component={Login} />
-              <Route path={Routes.DemoEntities} exact component={DemoEntities} />
+              {/*<Route path={Routes.DemoEntities} exact component={DemoEntities} />*/}
             </Switch>
           </main>
         </div>

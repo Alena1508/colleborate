@@ -6,7 +6,7 @@ import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { compose } from "recompose";
 import { SignUpAction } from "../../../actions";
 import { Payload } from "../../../routines/SignUp";
-import FormTextField from "./fragments/FormTextField";
+import FormTextField from "../../../components/common/formElements/input/FormTextField";
 import styles, { classes } from "../styles";
 
 
@@ -14,8 +14,8 @@ type ComponentProps = InjectedFormProps<Payload> & WithStyles<classes>;
 
 
 
-class CreateForm extends React.Component<ComponentProps> {
-  submitCreateForm = bindRoutineToReduxForm(SignUpAction);
+class RegistationForm extends React.Component<ComponentProps> {
+  submitHandler = bindRoutineToReduxForm(SignUpAction);
 
   componentDidMount () {
     this.props.reset();
@@ -43,7 +43,7 @@ class CreateForm extends React.Component<ComponentProps> {
           <Button
             className={classes.submitButton}
             color={"primary"}
-            onClick={handleSubmit(this.submitCreateForm)}
+            onClick={handleSubmit(this.submitHandler)}
             disabled={submitting}
           >
             Submit
@@ -59,4 +59,4 @@ export default compose(
     form: "sign-up"
   }),
   withStyles(styles, {withTheme: true}),
-)(CreateForm);
+)(RegistationForm);

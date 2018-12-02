@@ -5,8 +5,8 @@ import { Button } from "@material-ui/core";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { compose } from "recompose";
 import { SignInAction } from "../../../actions";
-import { Payload } from "../../../routines/SignUp";
-import FormTextField from "./fragments/FormTextField";
+import { Payload } from "../../../routines/SignIn";
+import FormTextField from "../../../components/common/formElements/input/FormTextField";
 import styles, { classes } from "../styles";
 
 
@@ -14,7 +14,7 @@ type ComponentProps = InjectedFormProps<Payload> & WithStyles<classes>;
 
 
 
-class Form extends React.Component<ComponentProps> {
+class LoginForm extends React.Component<ComponentProps> {
   submitForm = bindRoutineToReduxForm(SignInAction);
 
   componentDidMount () {
@@ -59,4 +59,4 @@ export default compose(
     form: "sign-in"
   }),
   withStyles(styles, {withTheme: true}),
-)(Form);
+)(LoginForm);

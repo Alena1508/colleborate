@@ -21,6 +21,6 @@ export default (theme: Theme): StyleRules<classes> => ({
   },
   link: {
     display: "block",
-    textAlign: "center"
+    textAlign: "center",
   }
 });

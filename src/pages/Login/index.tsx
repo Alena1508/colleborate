@@ -1,5 +1,5 @@
 import * as React from "react";
-import Form from "./form";
+import LoginForm from "./LoginForm";
 import styles, { classes } from "./styles";
 import { withStyles, WithStyles } from "@material-ui/core";
 import { compose } from "recompose";
@@ -13,7 +13,7 @@ class Login extends React.Component<ComponentProps> {
     return (
       <div>
         <h2 className={classes.pageTitle}>Login</h2>
-        <Form />
+        <LoginForm />
       </div>
     );
   }
